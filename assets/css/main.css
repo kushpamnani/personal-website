@@ -372,6 +372,98 @@ input, select, textarea {
 	}
 
 	
+	.contact-container {
+		display: flex;
+		justify-content: space-between;
+		gap: 2em;
+	}
+	
+	.contact-form {
+		flex: 1;
+		max-width: 50%;
+	}
+	
+	.contact {
+		flex: 1;
+		max-width: 50%;
+	}
+	
+	form {
+		margin-top: 0;
+	}
+	
+	.fields {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+	
+	.field {
+		width: 100%;
+	}
+	
+	label {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+	
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		width: 100%;
+		padding: 0.5em;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+	
+	.actions {
+		margin-top: 1em;
+		list-style: none;
+		padding: 0;
+	}
+	
+	input[type="submit"] {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 4px;
+	}
+	
+	@media screen and (max-width: 736px) {
+		.contact-container {
+			flex-direction: column;
+		}
+		
+		.contact-form,
+		.contact {
+			max-width: 100%;
+		}
+	}
+
+#banner .inner {
+    text-align: left;
+    padding: 10px; /* Adjust the padding to bring the content closer together */
+}
+
+#banner .logo {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 0px; /* Reduce the margin to bring the icon closer to the name */
+}
+
+#banner .logo .fas {
+    font-size: 1em; /* Adjust the size as needed */
+    color: #fff; /* Ensure the color matches your theme */
+}
+
+	
 
 /* Row */
 
@@ -2990,6 +3082,7 @@ input, select, textarea {
 			}
 
 		}
+		
 
 /* Features */
 

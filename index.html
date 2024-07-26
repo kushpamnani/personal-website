@@ -31,7 +31,6 @@
         <h2>Menu</h2>
         <ul class="links">
             <li><a href="#banner">Home</a></li>
-            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#footer">Contact</a></li>
         </ul>
@@ -55,15 +54,15 @@
 		<section id="wrapper">
 
 			<!-- Experience -->
-			<section id="experience" class="wrapper alt style1">
+			<!-- <section id="experience" class="wrapper alt style1">
 				<div class="inner">
 					<h2 class="major">Experience</h2>
 					<p>Here are some of my most recent work experiences!</p>
 				</div>
-			</section>
+			</section> -->
 
 			<!-- One -->
-			<section id="one" class="wrapper spotlight style1">
+			<section id="experience" class="wrapper spotlight style1">
 				<div class="inner">
 					<a href="#" class="image"><img src="images/headstarter_logo.jpeg" alt="Headstarter AI Logo" class="work-logo" /></a>
 					<div class="content">
@@ -86,10 +85,10 @@
 
 			<section id="two" class="wrapper alt spotlight style2">
 				<div class="inner">
-					<a href="#" class="image"><img src="images/emerson logo.png" alt="Emerson Logo" class="copeland-logo" /></a>
+					<a href="#" class="image emerson-logo"><img src="images/emerson logo.jpg" alt="Emerson Logo" /></a>
 					<div class="content">
-						<h2 class="major">SWE Intern at Copeland (May 2024 - Present)</h2>
-						<p> Developed a client dashboard on HVAC products for over 1K customers</p>
+						<h2 class="major">IT Co-Op at Emerson (Aug 2023 - Dec 2023)</h2>
+						<p>Developed a client dashboard on HVAC products for over 1K customers</p>
 					</div>
 				</div>
 			</section>
@@ -137,7 +136,7 @@
 				<p>Feel free to reach out, whether you want to learn more about my work, discuss potential opportunities, or simply wish to connect!</p>
 
 				<div class="contact-container">
-					<form action="https://formspree.io/f/mgvwobnq" method="POST">
+					<form id="contact-form" action="https://formspree.io/f/mgvwobnq" method="POST">
 						<div class="fields">
 							<div class="field">
 								<label for="name">NAME</label>
@@ -183,6 +182,41 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById('contact-form');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert("Thank you for your message!");
+                    form.reset(); // Reset the form after successful submission
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("Oops! There was a problem submitting your form");
+                        }
+                    });
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem submitting your form");
+            });
+        });
+    });
+</script>
+
 
 </body>
 
